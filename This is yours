@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Selamat Ulang Tahun!</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      background-color: #ffe6e6;
+      color: #333;
+      overflow: hidden;
+    }
+    .container {
+      margin-top: 50px;
+    }
+    h1 {
+      color: #ff6347;
+      font-size: 3em;
+    }
+    p {
+      font-size: 1.5em;
+    }
+    button {
+      margin-top: 20px;
+      padding: 10px 20px;
+      font-size: 1.2em;
+      color: white;
+      background-color: #ff6347;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #ff4500;
+    }
+    .balloon {
+      position: absolute;
+      width: 50px;
+      height: 70px;
+      background-color: #ffcc00;
+      border-radius: 50%;
+      animation: float 5s linear infinite;
+    }
+    @keyframes float {
+      0% {
+        transform: translateY(100vh);
+      }
+      100% {
+        transform: translateY(-100vh);
+      }
+    }
+    audio {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>🎉 Selamat Ulang Tahun! 🎉</h1>
+    <p>Semoga hari istimewa ini penuh kebahagiaan dan kenangan indah!</p>
+    <button onclick="startCelebration()">Rayakan!</button>
+  </div>
+
+  <!-- Menambahkan musik latar -->
+  <audio id="birthdayMusic" loop>
+    <source src="https://www.bensound.com/bensound-music/bensound-happyrock.mp3" type="audio/mp3">
+    Browser Anda tidak mendukung audio tag.
+  </audio>
+
+  <script>
+    function startCelebration() {
+      // Menjalankan musik
+      const music = document.getElementById('birthdayMusic');
+      music.play();
+
+      // Menampilkan balon
+      for (let i = 0; i < 30; i++) {
+        const balloon = document.createElement('div');
+        balloon.classList.add('balloon');
+        balloon.style.backgroundColor = getRandomColor();
+        balloon.style.left = Math.random() * 100 + 'vw';
+        balloon.style.animationDuration = Math.random() * 3 + 3 + 's';
+        document.body.appendChild(balloon);
+
+        // Hapus balon setelah animasi selesai
+        balloon.addEventListener('animationend', () => {
+          balloon.remove();
+        });
+      }
+    }
+
+    function getRandomColor() {
+      const colors = ['#ff6347', '#ffcc00', '#1e90ff', '#32cd32', '#ff69b4'];
+      return colors[Math.floor(Math.random() * colors.length)];
+    }
+  </script>
+</body>
+</html>
