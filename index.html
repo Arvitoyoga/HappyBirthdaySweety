@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Happy Birthday Jenny</title>
+    <title>Happy Birthday Sachin</title>
     <meta charset="UTF-8" />
     <meta name="description" content="Happy Birthday">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -18,18 +18,45 @@
         }
         .balloons {
             margin: 5px;
+            position: relative;
+            animation: float 4s infinite ease-in-out;
+        }
+        @keyframes float {
+            0% {
+                transform: translateY(0px);
+            }
+            50% {
+                transform: translateY(-20px);
+            }
+            100% {
+                transform: translateY(0px);
+            }
         }
         .balloon-border {
             max-width: 80%;
+            display: none;
         }
         .cake {
             margin: 20px auto;
+            display: none;
         }
         .message p {
             font-family: 'Signika', sans-serif;
             font-size: 1.5rem;
             text-align: center;
             margin: 10px 0;
+            display: none;
+        }
+        .fuego {
+            animation: flicker 1s infinite alternate;
+        }
+        @keyframes flicker {
+            0% {
+                opacity: 0.8;
+            }
+            100% {
+                opacity: 1;
+            }
         }
     </style>
 </head>
@@ -84,46 +111,40 @@
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
     <script>
-        // Otomatisasi Fungsi
+        // Otomatisasi Efek
         $(document).ready(function () {
-            // Efek Menyalakan Lampu
+            // Menyalakan lampu (balon muncul dengan efek mengambang)
             setTimeout(() => {
-                $("#b1, #b2, #b3, #b4, #b5, #b6").fadeIn();
+                $(".balloons").fadeIn();
                 console.log("Lights turned on");
             }, 1000);
 
-            // Efek Musik Dimainkan (sudah otomatis dengan autoplay)
-            console.log("Music is playing");
-
-            // Dekorasi Banner
+            // Menampilkan dekorasi banner
             setTimeout(() => {
                 $(".balloon-border").fadeIn();
                 console.log("Banner decorated");
             }, 3000);
 
-            // Balon Terbang
-            setTimeout(() => {
-                $(".balloons").animate({ top: "-=500px" }, 3000);
-                console.log("Balloons are flying");
-            }, 5000);
+            // Balon Terbang (animasi mengambang aktif secara default)
+            console.log("Balloons are flying");
 
-            // Tampilkan Kue
+            // Tampilkan kue
             setTimeout(() => {
                 $(".cake").fadeIn();
                 console.log("Cake appeared");
-            }, 8000);
+            }, 5000);
 
-            // Nyalakan Lilin
+            // Nyalakan lilin
             setTimeout(() => {
-                $(".fuego").css("animation", "flicker 1s infinite");
+                $(".fuego").css("display", "block");
                 console.log("Candles are lit");
-            }, 10000);
+            }, 7000);
 
-            // Tampilkan Pesan
+            // Tampilkan pesan ulang tahun
             setTimeout(() => {
-                $(".message").fadeIn();
+                $(".message p").fadeIn();
                 console.log("Message displayed");
-            }, 12000);
+            }, 9000);
         });
     </script>
 </body>
