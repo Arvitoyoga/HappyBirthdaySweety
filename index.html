@@ -20,61 +20,6 @@
 	<link rel="stylesheet/less" href="cake.less">
 	<script src="//cdnjs.cloudflare.com/ajax/libs/less.js/2.1.0/less.min.js"></script>
 </head>
-    <style>
-        * {
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: Arial, sans-serif;
-            text-align: center;
-        }
-
-        .slideshow-container {
-            max-width: 800px;
-            position: relative;
-            margin: auto;
-            overflow: hidden;
-        }
-
-        .mySlides {
-            display: none;
-        }
-
-        img {
-            width: 100%;
-            height: auto;
-        }
-
-        .fade {
-            animation: fade 1.5s;
-        }
-
-        @keyframes fade {
-            from { opacity: 0.4; }
-            to { opacity: 1; }
-        }
-
-        .navigation {
-            margin-top: 10px;
-        }
-
-        .prev, .next {
-            cursor: pointer;
-            padding: 10px;
-            margin: 5px;
-            background-color: #007BFF;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            font-size: 16px;
-        }
-
-        .prev:hover, .next:hover {
-            background-color: #0056b3;
-        }
-    </style>
-<body>
     <div class="slideshow-container">
         <div class="mySlides fade">
             <img src="Foto1.jpg" alt="Foto 1">
@@ -98,60 +43,9 @@
             <img src="Foto7.jpg" alt="Foto 7">
         </div>
     </div>
-    <script>
-        let slideIndex = 0;
-        let timer;
+    
 
-        document.getElementById("slideshow").addEventListener("click", startSlideshow);
-
-        function startSlideshow() {
-            slideIndex = 0; // Reset slide index
-            showSlides(); // Show the first slide
-        }
-
-        function showSlides() {
-            let slides = document.getElementsByClassName("mySlides");
-            
-            // Hide all slides
-            for (let i = 0; i < slides.length; i++) {
-                slides[i].style.display = "none";  
-            }
-
-            slideIndex++;
-            if (slideIndex > slides.length) {
-                clearInterval(timer); // Stop the slideshow
-                return; // Exit the function
-            }
-
-            slides[slideIndex - 1].style.display = "block"; // Show the current slide
-
-            // Change slide every 2 seconds
-            timer = setTimeout(showSlides, 2000);
-        }
-
-        function plusSlides(n) {
-            slideIndex += n;
-            if (slideIndex > document.getElementsByClassName("mySlides").length) {
-                slideIndex = 1; // Reset to first slide
-            } else if (slideIndex < 1) {
-                slideIndex = document.getElementsByClassName("mySlides").length; // Go to last slide
-            }
-            showCurrentSlide();
-        }
-
-        function showCurrentSlide() {
-            let slides = document.getElementsByClassName("mySlides");
-            
-            // Hide all slides
-            for (let i = 0; i < slides.length; i++) {
-                slides[i].style.display = "none";  
-            }
-
-            slides[slideIndex - 1].style.display = "block"; // Show the current slide
-        }
-    </script>
-</body>
-</html>
+        
 <body>
 	<div class="loading"></div>
 	<audio class="song" controls loop>
