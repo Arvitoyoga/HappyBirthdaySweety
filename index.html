@@ -21,84 +21,140 @@
 	<script src="//cdnjs.cloudflare.com/ajax/libs/less.js/2.1.0/less.min.js"></script>
 </head>
     <style>
-        .slideshow {
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+
+        .slideshow-container {
+            max-width: 800px;
             position: relative;
-            width: 100%; /* Set the width of the slideshow */
-            height: 400px; /* Set the height of the slideshow */
-            overflow: hidden; /* Hide overflow */
+            margin: auto;
+            overflow: hidden;
         }
 
-        .slide {
-            position: absolute;
-            top: 0;
-            left: 0;
+        .mySlides {
+            display: none;
+        }
+
+        img {
             width: 100%;
-            height: 100%;
-            opacity: 0; /* Start with images hidden */
-            transition: opacity 1s ease-in-out; /* Fade transition */
+            height: auto;
         }
 
-        .slide.active {
-            opacity: 1; /* Show the active slide */
+        .fade {
+            animation: fade 1.5s;
         }
 
-        button {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            background-color: rgba(255, 255, 255, 0.7);
-            border: none;
-            padding: 10px;
+        @keyframes fade {
+            from { opacity: 0.4; }
+            to { opacity: 1; }
+        }
+
+        .navigation {
+            margin-top: 10px;
+        }
+
+        .prev, .next {
             cursor: pointer;
-            font-size: 18px;
+            padding: 10px;
+            margin: 5px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
         }
 
-        .prev {
-            left: 10px; /* Position the previous button */
-        }
-
-        .next {
-            right: 10px; /* Position the next button */
+        .prev:hover, .next:hover {
+            background-color: #0056b3;
         }
     </style>
 <body>
+    <button class="btn btn-primary" id="slideshow">Happy Birthday</button>
+    <div class="slideshow-container">
+        <div class="mySlides fade">
+            <img src="Foto1.jpg" alt="Foto 1">
+        </div>
+        <div class="mySlides fade">
+            <img src="Foto2.jpg" alt="Foto 2">
+        </div>
+        <div class="mySlides fade">
+            <img src="Foto3.jpg" alt="Foto 3">
+        </div>
+        <div class="mySlides fade">
+            <img src="Foto4.jpg" alt="Foto 4">
+        </div>
+        <div class="mySlides fade">
+            <img src="Foto5.jpg" alt="Foto 5">
+        </div>
+        <div class="mySlides fade">
+            <img src="Foto6.jpg" alt="Foto 6">
+        </div>
+        <div class="mySlides fade">
+            <img src="Foto7.jpg" alt="Foto 7">
+        </div>
+    </div>
+    <div class="navigation">
+        <button class="prev" onclick="plusSlides(-1)">❮</button>
+        <button class="next" onclick="plusSlides(1)">❯</button>
+    </div>
+    <script>
+        let slideIndex = 0;
+        let timer;
 
-<div class="slideshow">
-    <img src="photo-1.jpg" alt="Slide 1" class="slide active">
-    <img src="photo-2.jpg" alt="Slide 2" class="slide">
-    <img src="photo-3.jpg" alt="Slide 3" class="slide">
-    <img src="photo-4.jpg" alt="Slide 4" class="slide">
-    <img src="photo-5.jpg" alt="Slide 5" class="slide">
-    <button class="prev" onclick="changeSlide(-1)">&#10094;</button>
-    <button class="next" onclick="changeSlide(1)">&#10095;</button>
-</div>
+        document.getElementById("slideshow").addEventListener("click", startSlideshow);
 
-<script>
-    let currentSlide = 0;
+        function startSlideshow() {
+            slideIndex = 0; // Reset slide index
+            showSlides(); // Show the first slide
+        }
 
-    function showSlide(index) {
-        const slides = document.querySelectorAll('.slide');
-        slides.forEach((slide, i) => {
-            slide.classList.remove('active'); // Hide all slides
-        });
-        slides[index].classList.add('active'); // Show the current slide
-    }
+        function showSlides() {
+            let slides = document.getElementsByClassName("mySlides");
+            
+            // Hide all slides
+            for (let i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";  
+            }
 
-    function changeSlide(direction) {
-        const slides = document.querySelectorAll('.slide');
-        currentSlide = (currentSlide + direction + slides.length) % slides.length; // Update current slide index
-        showSlide(currentSlide); // Show the new slide
-    }
+            slideIndex++;
+            if (slideIndex > slides.length) {
+                clearInterval(timer); // Stop the slideshow
+                return; // Exit the function
+            }
 
-    // Automatic slide change every 3 seconds
-    setInterval(() => {
-        changeSlide(1); // Change to the next slide
-    }, 3000);
+            slides[slideIndex - 1].style.display = "block"; // Show the current slide
 
-    // Initial display
-    showSlide(currentSlide);
-</script>
+            // Change slide every 2 seconds
+            timer = setTimeout(showSlides, 2000);
+        }
 
+        function plusSlides(n) {
+            slideIndex += n;
+            if (slideIndex > document.getElementsByClassName("mySlides").length) {
+                slideIndex = 1; // Reset to first slide
+            } else if (slideIndex < 1) {
+                slideIndex = document.getElementsByClassName("mySlides").length; // Go to last slide
+            }
+            showCurrentSlide();
+        }
+
+        function showCurrentSlide() {
+            let slides = document.getElementsByClassName("mySlides");
+            
+            // Hide all slides
+            for (let i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";  
+            }
+
+            slides[slideIndex - 1].style.display = "block"; // Show the current slide
+        }
+    </script>
 </body>
 </html>
 <body>
