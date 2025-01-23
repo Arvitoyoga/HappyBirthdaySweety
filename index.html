@@ -82,10 +82,16 @@
 				
 			</div>
 		</div>
-		
-            		<button class="btn btn-primary" id="turn_on">Turn On Lights</button>
+		<script>
+            		 // Fungsi untuk menampilkan elemen dengan id="turn_on"
+        function turnOn() {
+            var element = document.getElementById("turn_on");
+            element.style.display = "block"; // Mengubah display menjadi block agar elemen terlihat
+        }
 
-        // Menjalankan fungsi secara otomatis saat halaman dimuat
+        // Menunda eksekusi fungsi turnOn selama 3 detik (3000 milidetik)
+        setTimeout(turnOn, 300);
+    </script>
 </body>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
