@@ -1,23 +1,105 @@
-<html>
+<!DOCTYPE html>
+<html lang="id">
 <head>
-    <title>Cake Cutting</title>
-    <link href="cake1.css" rel="stylesheet" type="text/css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Slideshow Foto</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f0f0f0;
+        }
+        .slideshow-container {
+            position: relative;
+            max-width: 600px;
+            margin: auto;
+            overflow: hidden;
+            border: 2px solid #ccc;
+            border-radius: 10px;
+            background-color: #fff;
+        }
+        .mySlides {
+            display: none;
+        }
+        img {
+            width: 100%;
+            border-radius: 10px;
+        }
+        .prev, .next {
+            cursor: pointer;
+            position: absolute;
+            top: 50%;
+            width: auto;
+            padding: 16px;
+            color: white;
+            font-weight: bold;
+            font-size: 18px;
+            transition: 0.6s ease;
+            border-radius: 0 3px 3px 0;
+            user-select: none;
+        }
+        .next {
+            right: 0;
+            border-radius: 3px 0 0 3px;
+        }
+        .prev:hover, .next:hover {
+            background-color: rgba(0, 0, 0, 0.8);
+        }
+    </style>
 </head>
 <body>
-    <div class="velas">
-        <div class="fuego"></div>
-        <div class="fuego"></div>
-        <div class="fuego"></div>
-        <div class="fuego"></div>
-        <div class="fuego"></div>
+
+<h1>Slideshow Foto</h1>
+
+<div class="slideshow-container">
+    <div class="mySlides">
+        <img src="Foto1.jpg" alt="Foto 1">
     </div>
-    
-    <!-- Menggunakan file SVG terpisah -->
-    <iframe src="cake.svg" width="200" height="500"></iframe>
-    
-    <div class="text">
-        <h1>Selamat Ulang Tahun!</h1>
-        <h1>Jenny</h1>
+    <div class="mySlides">
+        <img src="Foto2.jpg" alt="Foto 2">
     </div>
+    <div class="mySlides">
+        <img src="Foto3.jpg" alt="Foto 3">
+    </div>
+    <div class="mySlides">
+        <img src="Foto4.jpg" alt="Foto 4">
+    </div>
+    <div class="mySlides">
+        <img src="Foto5.jpg" alt="Foto 5">
+    </div>
+    <div class="mySlides">
+        <img src="Foto6.jpg" alt="Foto 6">
+    </div>
+    <div class="mySlides">
+        <img src="Foto7.jpg" alt="Foto 7">
+    </div>
+
+    <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+    <a class="next" onclick="plusSlides(1)">&#10095;</a>
+</div>
+
+<script>
+    let slideIndex = 0;
+    showSlides();
+
+    function showSlides() {
+        let i;
+        const slides = document.getElementsByClassName("mySlides");
+        for (i = 0; i < slides.length; i++) {
+            slides[i].style.display = "none";  
+        }
+        slideIndex++;
+        if (slideIndex > slides.length) {slideIndex = 1}    
+        slides[slideIndex - 1].style.display = "block";  
+        setTimeout(showSlides, 3000); // Ubah gambar setiap 3 detik
+    }
+
+    function plusSlides(n) {
+        slideIndex += n - 1; // Mengatur indeks slide
+        showSlides();
+    }
+</script>
+
 </body>
 </html>
