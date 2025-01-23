@@ -1,18 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Happy Birthday Sachin</title>
+    <title>Happy Birthday Jenny</title>
     <meta charset="UTF-8" />
     <meta name="description" content="Happy Birthday">
-    <meta name="robots" content="index, follow" />
-    <link rel="author" href="http://www.github.com/sachin0987" /> 
-    <meta name="keywords" content="Birthday, Happy">
-    <meta property="og:type" content="E-Greeting" />
-    <meta property="og:image" content="favicon.ico" />
-    <meta property="og:description" content="Wish you a very Happy Birthday">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="stylesheet.css">
     <style>
         body {
             display: flex;
@@ -38,16 +31,16 @@
             text-align: center;
             margin: 10px 0;
         }
-        .navbar {
-            margin-top: auto;
-            width: 100%;
-        }
-        .btn {
-            margin: 5px;
-        }
     </style>
 </head>
 <body>
+    <!-- Musik Otomatis -->
+    <audio class="song" autoplay loop>
+        <source src="hbd1.mp3"></source>
+        Your browser isn't invited for super fun audio time.
+    </audio>
+
+    <!-- Elemen Balon -->
     <div class="balloons text-center" id="b1">
         <h2 style="color:#F2B300;">S</h2>
     </div>
@@ -67,6 +60,8 @@
         <h2 style="color:#0719D4;">N</h2>
     </div>
     <img src="Balloon-Border.png" class="balloon-border">
+
+    <!-- Elemen Kue -->
     <div class="cake">
         <div class="velas">
             <div class="fuego"></div>
@@ -78,26 +73,58 @@
         <div class="cobertura"></div>
         <div class="bizcocho"></div>
     </div>
+
+    <!-- Pesan Ulang Tahun -->
     <div class="message">
         <p>Today is...</p>
         <p>Your message</p>
         <p>I'd like to wish you one more time</p>
         <p>A very happy birthday Sachin</p>
     </div>
-    <div class="navbar navbar-fixed-bottom">
-        <div class="text-center">
-            <button class="btn btn-primary" id="turn_on">Turn On Lights</button>
-            <button class="btn btn-primary" id="play">Play Music</button>
-            <button class="btn btn-primary" id="bannar_coming">Let's Decorate</button>
-            <button class="btn btn-primary" id="balloons_flying">Fly With Balloons</button>
-            <button class="btn btn-primary" id="cake_fadein">Most Delicious Cake Ever</button>
-            <button class="btn btn-primary" id="light_candle">Light Candle</button>
-            <button class="btn btn-primary" id="wish_message">Happy Birthday</button>
-            <button class="btn btn-primary" id="story">A Message for You</button>
-        </div>
-    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script>
+        // Otomatisasi Fungsi
+        $(document).ready(function () {
+            // Efek Menyalakan Lampu
+            setTimeout(() => {
+                $("#b1, #b2, #b3, #b4, #b5, #b6").fadeIn();
+                console.log("Lights turned on");
+            }, 1000);
+
+            // Efek Musik Dimainkan (sudah otomatis dengan autoplay)
+            console.log("Music is playing");
+
+            // Dekorasi Banner
+            setTimeout(() => {
+                $(".balloon-border").fadeIn();
+                console.log("Banner decorated");
+            }, 3000);
+
+            // Balon Terbang
+            setTimeout(() => {
+                $(".balloons").animate({ top: "-=500px" }, 3000);
+                console.log("Balloons are flying");
+            }, 5000);
+
+            // Tampilkan Kue
+            setTimeout(() => {
+                $(".cake").fadeIn();
+                console.log("Cake appeared");
+            }, 8000);
+
+            // Nyalakan Lilin
+            setTimeout(() => {
+                $(".fuego").css("animation", "flicker 1s infinite");
+                console.log("Candles are lit");
+            }, 10000);
+
+            // Tampilkan Pesan
+            setTimeout(() => {
+                $(".message").fadeIn();
+                console.log("Message displayed");
+            }, 12000);
+        });
+    </script>
 </body>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
-<script src="effect.js"></script>
 </html>
