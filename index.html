@@ -82,21 +82,10 @@
 				
 			</div>
 		</div>
-		<script>
-function runSequentially() {
-            setTimeout(turnOnLights, 0);          // Eksekusi langsung
-            setTimeout(playMusic, 2000);          // Eksekusi setelah 2 detik
-            setTimeout(bannerComing, 4000);       // Eksekusi setelah 4 detik
-            setTimeout(balloonsFlying, 6000);     // Eksekusi setelah 6 detik
-            setTimeout(cakeFadeIn, 8000);         // Eksekusi setelah 8 detik
-            setTimeout(lightCandle, 10000);       // Eksekusi setelah 10 detik
-            setTimeout(wishMessage, 12000);       // Eksekusi setelah 12 detik
-            setTimeout(storyMessage, 14000);      // Eksekusi setelah 14 detik
-        }
+		
+            		<button class="btn btn-primary" id="turn_on">Turn On Lights</button>
 
         // Menjalankan fungsi secara otomatis saat halaman dimuat
-        window.onload = runSequentially;
-		</script>
 </body>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
