@@ -26,8 +26,7 @@ $('document').ready(function(){
 		$('body').addClass('peach');
 		$(this).fadeOut('slow').delay(5000).promise().done(function(){
 			$('#play').fadeIn('slow');
-			var audio = $('.song')[0];
-        audio.play();
+			
 		});
 	});
 	$('#play').click(function(){
