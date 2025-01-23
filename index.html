@@ -82,53 +82,21 @@
 				
 			</div>
 		</div>
-		// Fungsi yang dijalankan saat masing-masing aksi
-function turnOnLights() {
-    console.log("Lampu menyala!");
-}
-
-function playMusic() {
-    console.log("Memutar musik!");
-}
-
-function bannerComing() {
-    console.log("Banner muncul!");
-}
-
-function balloonsFlying() {
-    console.log("Balon terbang!");
-}
-
-function cakeFadeIn() {
-    console.log("Kue fade-in muncul!");
-}
-
-function lightCandle() {
-    console.log("Lilinnya menyala!");
-}
-
-function wishMessage() {
-    console.log("Pesan Ulang Tahun!");
-}
-
-function storyMessage() {
-    console.log("Pesan untukmu!");
-}
-
-// Menjalankan setiap fungsi secara berurutan dengan timer
+		<script>
 function runSequentially() {
-    setTimeout(turnOnLights, 0);          // Eksekusi langsung
-    setTimeout(playMusic, 2000);          // Eksekusi setelah 2 detik
-    setTimeout(bannerComing, 4000);       // Eksekusi setelah 4 detik
-    setTimeout(balloonsFlying, 6000);     // Eksekusi setelah 6 detik
-    setTimeout(cakeFadeIn, 8000);         // Eksekusi setelah 8 detik
-    setTimeout(lightCandle, 10000);       // Eksekusi setelah 10 detik
-    setTimeout(wishMessage, 12000);       // Eksekusi setelah 12 detik
-    setTimeout(storyMessage, 14000);      // Eksekusi setelah 14 detik
-}
+            setTimeout(turnOnLights, 0);          // Eksekusi langsung
+            setTimeout(playMusic, 2000);          // Eksekusi setelah 2 detik
+            setTimeout(bannerComing, 4000);       // Eksekusi setelah 4 detik
+            setTimeout(balloonsFlying, 6000);     // Eksekusi setelah 6 detik
+            setTimeout(cakeFadeIn, 8000);         // Eksekusi setelah 8 detik
+            setTimeout(lightCandle, 10000);       // Eksekusi setelah 10 detik
+            setTimeout(wishMessage, 12000);       // Eksekusi setelah 12 detik
+            setTimeout(storyMessage, 14000);      // Eksekusi setelah 14 detik
+        }
 
-// Menjalankan fungsi secara otomatis saat halaman dimuat
-window.onload = runSequentially;
+        // Menjalankan fungsi secara otomatis saat halaman dimuat
+        window.onload = runSequentially;
+		</script>
 </body>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
